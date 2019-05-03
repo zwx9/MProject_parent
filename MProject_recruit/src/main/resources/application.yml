@@ -1,0 +1,23 @@
+server:
+  port: 9002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: MProject-recruit
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.106.248.31:3306/MP_recruit?characterEncoding=utf-8
+    username: root
+    password: root
+
+  jpa:
+      database: MySQL
+      show-sql: true
+      generate-ddl: true

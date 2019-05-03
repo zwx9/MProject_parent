@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_active" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_article" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_base" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_comment" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_elasticsearch" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_friend" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_qa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_recruit" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_sms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MProject_user" charset="UTF-8" />
+  </component>
+</project>

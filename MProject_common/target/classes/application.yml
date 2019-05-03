@@ -1,0 +1,4 @@
+jwt:
+  config:
+    key: user
+    expire: 3600000
