@@ -9,12 +9,14 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Service
+@Transactional
 public class UserService {
     @Autowired
     private UserDao userDao;
@@ -33,6 +35,7 @@ public class UserService {
      * */
 
     //产生验证码并发送
+//    @Transactional
     public void sendSms(String phone){
         //1.产生6位验证码
         String smsCode = ((int)(Math.random()*900000+100000))+"";
@@ -48,6 +51,7 @@ public class UserService {
     }
 
     //验证用户输入的验证码
+//    @Transactional
     public void addUser(User user,String smsCode){
         //从redis中获取验证码
         String redisCode = (String) redisTemplate.opsForValue().get("smsCode_" + user.getPhone());
@@ -70,6 +74,7 @@ public class UserService {
      * */
 
     //注册
+//    @Transactional
     public void addUser(User user){
         user.setId(idWorker.nextId()+"");
         //给密码进行加密
@@ -84,6 +89,7 @@ public class UserService {
     }
 
     //登录
+//    @Transactional
     public User findUserByLoginNameAndPassword(String loginName,String password){
         User user = userDao.findByLoginName(loginName);
         if (user != null && encoder.matches(password,user.getPassword())){
@@ -93,12 +99,19 @@ public class UserService {
     }
 
     //对方增加粉丝
-    public void updateFriendFans(int increase,String friendId){
-        userDao.updateFriendFans(increase,friendId);
+//    @Transactional
+    public void updateFansIncrease(String friendId){
+        userDao.updateFansIncrease(friendId);
     }
 
+    //对方减少粉丝
+//    @Transactional
+    public void updateFansDecrease(String friendId){
+        userDao.updateFansDecrease(friendId);
+    }
 
     //根据Id删除
+//    @Transactional
     public void deleteById(String id){
         userDao.deleteById(id);
     }

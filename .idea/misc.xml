@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/MProject_comments/pom.xml" />
+        <option value="$PROJECT_DIR$/MProject_manager/pom.xml" />
         <option value="$PROJECT_DIR$/fdfd/pom.xml" />
         <option value="$PROJECT_DIR$/sss/pom.xml" />
       </set>

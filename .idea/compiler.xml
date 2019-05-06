@@ -7,18 +7,20 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MProject_active" />
+        <module name="MProject_adminzuul" />
         <module name="MProject_article" />
         <module name="MProject_base" />
         <module name="MProject_comment" />
         <module name="MProject_common" />
+        <module name="MProject_config" />
         <module name="MProject_elasticsearch" />
         <module name="MProject_eureka" />
         <module name="MProject_friend" />
-        <module name="MProject_manager" />
         <module name="MProject_qa" />
         <module name="MProject_recruit" />
         <module name="MProject_sms" />
         <module name="MProject_user" />
+        <module name="MProject_userzuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

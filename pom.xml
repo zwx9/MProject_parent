@@ -21,7 +21,9 @@
         <module>MProject_user</module>
         <module>MProject_eureka</module>
         <module>MProject_friend</module>
-        <module>MProject_manager</module>
+        <module>MProject_userzuul</module>
+        <module>MProject_adminzuul</module>
+        <module>MProject_config</module>
 
 
     </modules>

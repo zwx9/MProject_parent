@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import javax.transaction.Transactional;
+
+
 public interface UserDao extends JpaRepository<User,String>, JpaSpecificationExecutor<User> {
     //根据用户名称查找
     public User findByLoginName(String loginName);
@@ -13,7 +16,11 @@ public interface UserDao extends JpaRepository<User,String>, JpaSpecificationExe
 
     //增加粉丝
     @Modifying
-    @Query(nativeQuery = true,value = "update tb_user set fans = fans + ? where id = ?")
-    public void updateFriendFans(int increase,String friendId);
+    @Query( "update User u set u.fans =u.fans+1 where u.id=?1")
+    public void updateFansIncrease(String friendId);
 
+    //减少粉丝
+    @Modifying
+    @Query( "update User u set u.fans =u.fans-1 where u.id=?1")
+    public void updateFansDecrease(String friendId);
 }

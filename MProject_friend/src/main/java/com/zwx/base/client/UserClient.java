@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Component
-@FeignClient(value = "MProject-user")
+@FeignClient(value="MProject-user",fallback = UserClientImpl.class)
 public interface UserClient {
-    @PutMapping(value = "user/updateFans/{increase}/{friendId}")
-    public Result updateFans(@PathVariable("increase") int increase,@PathVariable("friendId") String friendId);
+    //增加
+    @PutMapping("user/updateFansIncrease/{friendId}")
+    public Result updateFansIncrease(@PathVariable("friendId") String friendId);
+
+    //减少
+    @PutMapping("user/updateFansDecrease/{friendId}")
+    public Result updateFansDecrease(@PathVariable("friendId") String friendId);
 }

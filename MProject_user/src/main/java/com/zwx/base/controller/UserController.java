@@ -61,10 +61,19 @@ public class UserController {
     }
 
     //对方增加粉丝
-    @PutMapping(value = "updateFans/{increase}/{friendId}")
-    public Result updateFans(@PathVariable("increase") int increase,@PathVariable("friendId") String friendId){
-        userService.updateFriendFans(increase,friendId);
-        return new Result(true, StatusCode.OK, "对方粉丝已更新！");
+    @PutMapping("updateFansIncrease/{friendId}")
+    public Result updateFansIncrease(@PathVariable("friendId") String friendId) {
+        userService.updateFansIncrease(friendId);
+        System.out.println("===============================");
+        return new Result(true, StatusCode.OK, "粉丝减一！");
+    }
+
+    //对方减少粉丝
+    @PutMapping("updateFansDecrease/{friendId}")
+    public Result updateFansDecrease(@PathVariable("friendId") String friendId) {
+        userService.updateFansDecrease(friendId);
+        System.out.println("===============================");
+        return new Result(true, StatusCode.OK, "粉丝加一！");
     }
 
     //删除：先判断token(Authorization)
@@ -77,7 +86,6 @@ public class UserController {
         userService.deleteById(id);
         return new Result(true, StatusCode.OK, "删除成功！");
     }
-
 
 
 }

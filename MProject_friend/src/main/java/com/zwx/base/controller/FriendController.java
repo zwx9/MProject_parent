@@ -18,8 +18,6 @@ public class FriendController {
     private FriendService friendService;
     @Autowired
     private HttpServletRequest request;
-    @Autowired
-    private UserClient userClient;
 
     /**
      * 0:不能添加自己
@@ -48,7 +46,7 @@ public class FriendController {
 
 
     /**
-     * 设置关注 ???????????????????
+     * 设置关注
      * 0:添加关注成功！(成功后粉丝数量加一)
      *               (功能：在登录者在关注自己的朋友同时，朋友的粉丝数量加一)
      * 1:取消关注！
@@ -72,7 +70,7 @@ public class FriendController {
             return new Result(true, StatusCode.OK,"添加关注成功!");
         }
         //return = -1
-        return new Result(false, StatusCode.ERROR,"出现异常!");
+        return new Result(false, StatusCode.ERROR,"你和对方还不是好友，请先添加再关注!");
     }
 
     /**
