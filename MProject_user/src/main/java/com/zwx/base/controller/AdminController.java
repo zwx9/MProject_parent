@@ -21,8 +21,8 @@ public class AdminController {
     private HttpServletRequest request;
     @Autowired
     private AdminService adminService;
-    @Autowired
-    private JwtUtil jwtUtil;
+//    @Autowired
+//    private JwtUtil jwtUtil;
 
 
     /**以下是在注册时进行密码加密并登录*/
@@ -41,9 +41,9 @@ public class AdminController {
             return new Result(false, StatusCode.LOGINERROR,"用户名或密码错误！") ;
         }
         //token
-        String token = jwtUtil.createJWT(admin.getId(), admin.getLoginName(), "admin");
+//        String token = jwtUtil.createJWT(admin.getId(), admin.getLoginName(), "admin");
         Map map = new HashMap();
-        map.put("token",token);
+//        map.put("token",token);
         map.put("admin",admin);
         return new Result(true, StatusCode.OK,"登录成功",map) ;
     }

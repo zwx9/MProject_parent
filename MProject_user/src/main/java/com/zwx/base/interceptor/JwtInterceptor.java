@@ -1,3 +1,4 @@
+/*
 package com.zwx.base.interceptor;
 
 import com.zwx.util.JwtUtil;
@@ -16,9 +17,9 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
     private JwtUtil jwtUtil;
 
 
-    @Override
+//    @Override
     //Authorization -> 授权，认可，批准
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
+//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
         //前缀 + token
         String authorization = request.getHeader("Authorization");
         if (authorization != null && authorization.startsWith("Bearer ")){
@@ -42,3 +43,4 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         return true;//拦截器放行
     }
 }
+*/

@@ -11,6 +11,53 @@
 
     <artifactId>MProject_eureka</artifactId>
 
+    <build>
+        <finalName>myEurekaProject</finalName>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <!-- 以下configuration 解决 maven一个bug：no main manifest attribute-->
+                    <configuration>
+                        <!-- 指定该Main Class为全局的唯一入口 -->
+                        <mainClass>com.zwx.base.EurekaApplication</mainClass>
+                        <layout>ZIP</layout>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.4.13</version>
+                    <configuration>
+                        <imageName>
+                            47.106.248.31:5000/eureka:${project.version}
+                        </imageName>
+                        <!--docker的tag为项目版本号、latest-->
+                        <baseImage>jdk1.8</baseImage>
+                        <entryPoint>["java","-jar","/${project.build.finalName}.jar"] </entryPoint>
+                        <resources>
+                            <rescource>
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>${project.build.finalName}.jar</include>
+                            </rescource>
+
+                        </resources>
+                        <dockerHost>http://47.106.248.31:2375</dockerHost>
+                    </configuration>
+                </plugin>
+            </plugins>
+    </build>
+
+
+
     <dependencies>
         <!--注册中心-->
         <dependency>
@@ -25,5 +72,8 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
+    <!--通过maven构建docker镜像 (刚才手工 jdk->docker；现在通过maven自动将 某个项目->docker) -->
+
 
 </project>

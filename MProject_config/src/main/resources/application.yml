@@ -1,0 +1,21 @@
+server:
+  port: 10010
+
+spring:
+  application:
+    name: MProject-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zwx9/MProject_config.git
+  #          uri: git@github.com:zwx9/MProject_config.git
+#              git@github.com:zwx9/MProject_config.git
+  rabbitmq:
+    host: 47.106.248.31
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

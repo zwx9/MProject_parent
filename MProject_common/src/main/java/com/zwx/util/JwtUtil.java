@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-@ConfigurationProperties("jwt.config")
+//@ConfigurationProperties("jwt.config")
 public class JwtUtil {
     private String key ; //佐料盐
     private long expire ; //过期时间

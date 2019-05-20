@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@Configuration
+//@Configuration
 @EnableWebSecurity//开启加密功能
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

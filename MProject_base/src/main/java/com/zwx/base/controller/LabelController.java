@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -29,10 +30,12 @@ public class LabelController {
     private String myname;
 
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "find",method = RequestMethod.GET)
     public Result findAll(){
         System.out.println("*****"+myname+"*****");
-        return new Result(true, StatusCode.OK,"查询成功", labelService.findAll() );
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/index");
+        return new Result(true, StatusCode.OK,"查询成功", mav);
     }
 
     @RequestMapping(value = "{id}",method = RequestMethod.GET)

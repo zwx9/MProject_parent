@@ -1,8 +1,11 @@
 package com.zwx.base.entity;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,7 +15,10 @@ public class User implements Serializable {
     @Id
     private String id;
     private String username ;
+    @NotEmpty(message="用户名不能为空")
     private String loginName;
+    @NotEmpty(message="密码不能为空")
+    @Length(min=6, message="密码长度不能少于六位")
     private String password;
     private String phone ;
     private int fans ;//粉丝数
